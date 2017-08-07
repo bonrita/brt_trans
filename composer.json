@@ -1,0 +1,16 @@
+{
+  "name": "drupal/brt_trans",
+  "description": "A module to translate content entities.",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "minimum-stability": "alpha",
+  "require": {
+    "statickidz/php-google-translate-free": "^1.0"
+  },
+  "authors": [
+    {
+      "name": "Bonaventure Wani",
+      "role": "Maintainer"
+    }
+  ]
+}
