@@ -57,7 +57,7 @@ class TranslateContentEntity {
       return;
     }
 
-    $fields = \Drupal::service('entity_field.manager')
+    $fields = $this->fieldManager
       ->getFieldDefinitions($translation->getEntityTypeId(), $translation->bundle());
 
     /** @var \Drupal\Core\Field\FieldDefinitionInterface $field */
