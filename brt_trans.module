@@ -1,0 +1,25 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Hook_ENTITY_TYPE_translation_create().
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $translation
+ *   The entity.
+ */
+function brt_trans_node_translation_create(EntityInterface $translation) {
+  $trans = \Drupal::service('brt_trans.translate_content_entity');
+  $trans->translate($translation);
+}
+
+/**
+ * Hook_ENTITY_TYPE_presave.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   The entity.
+ */
+function brt_trans_paragraph_presave(EntityInterface $entity) {
+  $trans = \Drupal::service('brt_trans.translate_content_entity');
+  $trans->translate($entity);
+}

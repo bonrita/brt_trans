@@ -1,0 +1,5 @@
+name: BRT translation
+type: module
+description: BRT translation
+core: 8.x
+package: Custom
