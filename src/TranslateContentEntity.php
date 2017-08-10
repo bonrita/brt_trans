@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\brt_trans;
+namespace Drupal\gf_trans;
 
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
@@ -11,9 +11,9 @@ use Statickidz\GoogleTranslate;
 /**
  * Class TranslateContentEntity.
  *
- * @package Drupal\brt_trans
+ * @package Drupal\gf_trans
  */
-class TranslateContentEntity {
+class TranslateContentEntity implements TranslateEntity {
 
   /**
    * The translator.
@@ -41,19 +41,13 @@ class TranslateContentEntity {
   }
 
   /**
-   * Acts when creating a new entity translation or on entity pre-save.
-   *
-   * This will be called after a new entity translation object has just been
-   * instantiated.
-   *
-   * @param \Drupal\Core\Entity\EntityInterface $translation
-   *   The entity about to be translated.
+   * {@inheritdoc}
    */
   public function translate(EntityInterface $translation) {
     $target = $translation->language();
     $source = $translation->getUntranslated()->language();
 
-    if (!($translation instanceof ContentEntityBase) || ($target->getId() == $source->getId()) || !$translation->isTranslatable()) {
+    if ($target && !($translation instanceof ContentEntityBase) || !$translation->isNewTranslation() || ($target->getId() == $source->getId()) || !$translation->isTranslatable()) {
       return;
     }
 
@@ -91,7 +85,7 @@ class TranslateContentEntity {
    * @return array
    *   A translatable list.
    */
-  public function getTransltableTypes() {
+  protected function getTransltableTypes() {
     return [
       'string',
       'string_long',
@@ -107,7 +101,7 @@ class TranslateContentEntity {
    * @return array
    *   A translatable list.
    */
-  public function getTranslatableFieldValueProperties() {
+  protected function getTranslatableFieldValueProperties() {
     return [
       'value',
       'alt',
@@ -121,7 +115,7 @@ class TranslateContentEntity {
    * @return array
    *   A translatable list.
    */
-  public function getTranslatableBaseFields() {
+  protected function getTranslatableBaseFields() {
     return [
       'title',
     ];

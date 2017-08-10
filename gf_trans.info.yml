@@ -1,0 +1,5 @@
+name: Google free translation
+type: module
+description: Google free translation
+core: 8.x
+package: BRT

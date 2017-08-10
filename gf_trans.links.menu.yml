@@ -1,0 +1,6 @@
+gf_trans.translate_content:
+  title: 'Google free translate'
+  description: 'Translate content using the google translator.'
+  route_name: gf_trans.translate_content
+  parent: system.admin_config_regional
+  weight: 10

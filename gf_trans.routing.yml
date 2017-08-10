@@ -1,0 +1,9 @@
+gf_trans.translate_content:
+  path: '/admin/config/regional/gf-translate'
+  defaults:
+    _title: 'Google free content translate'
+    _form: 'Drupal\gf_trans\Form\GfTranslateContentForm'
+  requirements:
+    _permission: 'administer languages'
+  options:
+    _admin_route: TRUE

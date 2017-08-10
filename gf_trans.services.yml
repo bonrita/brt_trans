@@ -1,0 +1,4 @@
+services:
+  gf_trans.translate_content_entity:
+    class: Drupal\gf_trans\TranslateContentEntity
+    arguments: ["@entity_field.manager"]

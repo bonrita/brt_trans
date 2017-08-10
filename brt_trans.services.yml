@@ -1,4 +1,0 @@
-services:
-  brt_trans.translate_content_entity:
-    class: Drupal\brt_trans\TranslateContentEntity
-    arguments: ["@entity_field.manager"]
